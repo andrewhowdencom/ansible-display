@@ -32,8 +32,8 @@ Authentication is handled out of band; it assumes that the user will have the ap
 set up. Such a file will look something like the following:
 
 ```
-Host dp
-    User display
+Host dp*
+    User pi
     IdentityFile path/to/the/private/key.pem
 ```
 
