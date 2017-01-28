@@ -1,1 +1,13 @@
 ---
+- name: "Update the hostname"
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: "Update the hostfile entry with the new name"
+  lineinfile:
+    destfile: "/etc/hosts"
+    regexp: '^127\.0\.1\.1'
+    line: "127.0.1.1 {{ inventory_hostname }}"
+    owner: "root"
+    group: "root"
+    mode: 0644
