@@ -9,6 +9,16 @@ Customization
 If there are tasks that are specific to this property, create roles for them. If the tasks can be used, create them in
 another repository, and add that repository as a submodule to this one
 
+Initial Setup
+-------------
+
+There are a few small tasks that must be performed separately to the Ansible provisioning. These include:
+
+1. Resize the root partition
+2. Enable SSH
+
+Both of these tasks can be enabled with the `raspi-config` tool.
+
 Execution Instruction
 ---------------------
 
