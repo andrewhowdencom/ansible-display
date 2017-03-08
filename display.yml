@@ -8,3 +8,4 @@
   become_user: "root"
   roles:
     - "setup"
+    - "unattended-upgrades"

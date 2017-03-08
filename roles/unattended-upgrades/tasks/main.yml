@@ -1,0 +1,8 @@
+---
+- name: "Install the unattended upgrades apt plugin"
+  package:
+   name: "{{ item }}"
+   state: "present"
+  with_items:
+    - "unattended-upgrades"
+    - "apt-listchanges"
