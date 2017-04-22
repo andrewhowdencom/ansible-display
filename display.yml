@@ -10,3 +10,4 @@
     - "setup"
     - "unattended-upgrades"
     - "sshd"
+    - "motd"

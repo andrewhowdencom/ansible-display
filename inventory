@@ -1,1 +1,2 @@
+[displays]
 dp01 ansible_become=true
