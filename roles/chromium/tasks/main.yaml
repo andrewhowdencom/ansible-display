@@ -1,0 +1,32 @@
+---
+- name: "Create the group policy path for Chromium"
+  file:
+    path: "/etc/chromium/policies/managed"
+    state: "directory"
+    recurse: "yes"
+    owner: "root"
+    group: "root"
+    mode: "u=rwx,g=rx,o=rx"
+
+- name: "Install the group policies for Chromium"
+  template:
+    src: "etc/chromium/policies/managed/{{ item | basename }}"
+    dest: "/etc/chromium/policies/managed/{{ item | basename | replace('.j2', '') }}"
+    owner: "root"
+    group: "root"
+    mode: "u=r,g=r,o=r"
+  with_fileglob: "../templates/etc/chromium/policies/managed/*"
+
+- name: "Install chromium browser"
+  package:
+    name: "chromium-browser"
+    state: "present"
+
+- name: "Update service unit for Chrome"
+  template:
+    src: "etc/systemd/system/chromium.service.j2"
+    dest: "/etc/systemd/system/chromium.service"
+    owner: "root"
+    group: "root"
+    mode: "u=rwx,g=r,o=r"
+  notify: "restart chromium"

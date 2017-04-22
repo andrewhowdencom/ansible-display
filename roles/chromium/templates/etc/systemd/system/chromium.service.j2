@@ -1,0 +1,22 @@
+[Unit]
+Description=Start display
+
+[Service]
+# Allow it to find the display
+Environment="DISPLAY=:0"
+
+# Run it as the Pi user (or whatever user that has been renamed to)
+Environment="XAUTHORITY=/run/user/1000/gdm/Xauthority"
+User=1000
+
+# Use a private tmp
+PrivateTmp=yes
+
+# If Chrome crashes, reboot it
+Restart=always
+ExecStart=/usr/bin/chromium-browser --start-fullscreen
+
+[Install]
+
+# Boot it after the GUI is up
+WantedBy=graphical.target
