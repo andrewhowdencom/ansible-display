@@ -9,3 +9,4 @@
   roles:
     - "setup"
     - "unattended-upgrades"
+    - "sshd"
