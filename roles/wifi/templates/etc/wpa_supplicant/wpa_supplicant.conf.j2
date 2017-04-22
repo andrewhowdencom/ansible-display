@@ -1,0 +1,19 @@
+# Set up for all networks this Pi is expected to connect to.
+#
+# @category  Ansible
+# @package   Ansible_Wifi
+# @copyright Copyright (c) Andrew Howden (https://www.andrewhowden.com)
+# @contact   hello@andrewhowden.com
+
+country=GB
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+{% for item in wifi_networks %}
+network={
+  ssid="{{ item.ssid }}"
+  psk="{{ item.psk }}"
+}
+
+{% endfor %}
+

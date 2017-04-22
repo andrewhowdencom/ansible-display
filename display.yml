@@ -11,3 +11,4 @@
     - "unattended-upgrades"
     - "sshd"
     - "motd"
+    - "wifi"
