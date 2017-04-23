@@ -1,7 +1,7 @@
 ---
 - name: "Create the group policy path for Chromium"
   file:
-    path: "/etc/chromium/policies/managed"
+    path: "/etc/chromium-browser/policies/managed"
     state: "directory"
     recurse: "yes"
     owner: "root"
@@ -10,12 +10,12 @@
 
 - name: "Install the group policies for Chromium"
   template:
-    src: "etc/chromium/policies/managed/{{ item | basename }}"
-    dest: "/etc/chromium/policies/managed/{{ item | basename | replace('.j2', '') }}"
+    src: "etc/chromium-browser/policies/managed/{{ item | basename }}"
+    dest: "/etc/chromium-browser/policies/managed/{{ item | basename | replace('.j2', '') }}"
     owner: "root"
     group: "root"
     mode: "u=r,g=r,o=r"
-  with_fileglob: "../templates/etc/chromium/policies/managed/*"
+  with_fileglob: "../templates/etc/chromium-browser/policies/managed/*"
 
 - name: "Install chromium browser"
   package:
