@@ -12,4 +12,5 @@
     - "sshd"
     - "motd"
     - "wifi"
+    - "node-exporter"
     - "chromium"

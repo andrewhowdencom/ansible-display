@@ -1,3 +1,6 @@
 [submodule "roles/motd"]
 	path = roles/motd
 	url = https://github.com/littlemanco/ansible-role-motd.git
+[submodule "roles/roles/node-exporter"]
+	path = roles/roles/node-exporter
+	url = https://github.com/littlemanco/ansible-role-node-exporter
