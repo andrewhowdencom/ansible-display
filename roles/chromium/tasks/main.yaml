@@ -14,7 +14,7 @@
     dest: "/etc/chromium-browser/policies/managed/{{ item | basename | replace('.j2', '') }}"
     owner: "root"
     group: "root"
-    mode: "u=r,g=r,o=r"
+    mode: "u=rwx,g=rw,o=rw"
   with_fileglob: "../templates/etc/chromium-browser/policies/managed/*"
 
 - name: "Install chromium browser"
@@ -28,5 +28,5 @@
     dest: "/etc/systemd/system/chromium.service"
     owner: "root"
     group: "root"
-    mode: "u=rwx,g=r,o=r"
+    mode: "u=rwx,g=rw,o=rw"
   notify: "restart chromium"
