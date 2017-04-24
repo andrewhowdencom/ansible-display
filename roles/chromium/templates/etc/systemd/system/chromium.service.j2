@@ -14,8 +14,11 @@ PrivateTmp=yes
 
 # If Chrome crashes, reboot it
 Restart=always
-ExecStart=/usr/bin/chromium-browser --start-fullscreen --incognito
-
+ExecStart=/usr/bin/chromium-browser \
+    --kiosk \
+    --app-auto-launched \
+    --disable-infobars \
+    {{ chromium.app }}
 [Install]
 
 # Boot it after the GUI is up
