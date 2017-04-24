@@ -1,0 +1,14 @@
+---
+- name: "run reboot cmd"
+  shell: reboot
+  listen: "reboot machine"
+
+- name: "wait for machine to return"
+  local_action:
+    module: "wait_for"
+    host: "{{ ansible_ssh_host }}"
+    port: 22
+    delay: 15
+    timeout: 300
+  listen: "reboot machine"
+

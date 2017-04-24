@@ -13,4 +13,5 @@
     - "motd"
     - "wifi"
     - "node-exporter"
+    - "x"
     - "chromium"
